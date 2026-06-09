@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>robots.txt Generator — Free Robots File Creator</title>
+<meta name="description" content="Free online robots.txt generator. Create, validate and download your robots.txt file with live preview. Block AI bots, set crawl-delay, add sitemaps.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://robotstxt-gen.pages.dev/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="robots.txt Generator — Free Robots File Creator">
+<meta property="og:description" content="Free online robots.txt generator with live preview, validation and presets. Create your robots.txt in seconds.">
+<meta property="og:url" content="https://robotstxt-gen.pages.dev/">
+<meta property="og:site_name" content="robots.txt Generator">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="robots.txt Generator — Free Robots File Creator">
+<meta name="twitter:description" content="Free online robots.txt generator with live preview, validation and presets.">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"robots.txt Generator",
+  "description":"Free online robots.txt generator with live preview, validation and presets.",
+  "url":"https://robotstxt-gen.pages.dev/",
+  "applicationCategory":"DeveloperApplication",
+  "operatingSystem":"Any",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "browserRequirements":"Requires JavaScript"
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d1117;color:#c9d1d9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;line-height:1.6}
+a{color:#58a6ff;text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid #21262d;padding:20px 0}
+header h1{font-size:1.6rem;color:#f0f6fc}
+header p{color:#8b949e;margin-top:4px;font-size:.95rem}
+main{padding:30px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+@media(max-width:768px){.grid{grid-template-columns:1fr}}
+.card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;margin-bottom:20px}
+.card h2{font-size:1.15rem;color:#f0f6fc;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.card h2 svg{width:20px;height:20px;fill:#58a6ff}
+label{display:block;color:#8b949e;font-size:.85rem;margin-bottom:4px}
+input[type="text"],select{width:100%;background:#0d1117;border:1px solid #30363d;color:#c9d1d9;padding:8px 12px;border-radius:6px;font-size:.9rem}
+input:focus,select:focus{outline:none;border-color:#58a6ff}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:6px;border:1px solid #30363d;background:#21262d;color:#c9d1d9;cursor:pointer;font-size:.85rem;transition:.15s}
+.btn:hover{background:#30363d}
+.btn-primary{background:#238636;border-color:#238636;color:#fff}
+.btn-primary:hover{background:#2ea043}
+.btn-danger{background:#da3633;border-color:#da3633;color:#fff}
+.btn-danger:hover{background:#f85149}
+.btn-sm{padding:5px 10px;font-size:.8rem}
+.group{border:1px solid #30363d;border-radius:6px;padding:14px;margin-bottom:14px;position:relative}
+.group .remove-group{position:absolute;top:10px;right:10px}
+.rule-row{display:flex;gap:8px;align-items:end;margin-bottom:8px}
+.rule-row select{width:120px;flex-shrink:0}
+.rule-row input{flex:1}
+.rule-row .btn-sm{flex-shrink:0;margin-bottom:0}
+.validation{margin-top:10px}
+.validation .err{color:#f85149;font-size:.83rem;padding:3px 0}
+.validation .warn{color:#d29922;font-size:.83rem;padding:3px 0}
+.validation .ok{color:#3fb950;font-size:.83rem;padding:3px 0}
+textarea{width:100%;background:#0d1117;border:1px solid #30363d;color:#c9d1d9;padding:12px;border-radius:6px;font-family:'Courier New',monospace;font-size:.85rem;resize:vertical;min-height:250px}
+.actions{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.presets{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.presets .btn{font-size:.8rem}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin:40px 0}
+.feature{text-align:center;padding:20px}
+.feature .icon{font-size:2rem;margin-bottom:8px}
+.feature h3{color:#f0f6fc;font-size:1rem;margin-bottom:6px}
+.feature p{color:#8b949e;font-size:.88rem}
+.faq{margin:40px 0}
+.faq-item{border:1px solid #30363d;border-radius:6px;margin-bottom:10px;overflow:hidden}
+.faq-q{padding:14px 20px;cursor:pointer;color:#f0f6fc;font-weight:500;display:flex;justify-content:space-between;align-items:center}
+.faq-q::after{content:'+';font-size:1.2rem;color:#8b949e}
+.faq-q.open::after{content:'−'}
+.faq-a{padding:0 20px;max-height:0;overflow:hidden;color:#8b949e;font-size:.9rem;transition:.2s}
+.faq-a.open{padding:0 20px 14px;max-height:300px}
+.email-widget{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:24px;text-align:center;margin:40px 0}
+.email-widget h3{color:#f0f6fc;margin-bottom:8px}
+.email-widget p{color:#8b949e;font-size:.9rem;margin-bottom:14px}
+.email-form{display:flex;gap:8px;max-width:400px;margin:0 auto}
+.email-form input{flex:1}
+.cross-links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:30px 0}
+.cross-links a{color:#58a6ff;font-size:.88rem}
+footer{text-align:center;padding:30px 0;border-top:1px solid #21262d;color:#8b949e;font-size:.82rem}
+</style>
+</head>
+<body>
+<header>
+<div class="container">
+<h1>robots.txt Generator</h1>
+<p>Free online tool to create, validate and download your robots.txt file.</p>
+</div>
+</header>
+
+<main class="container">
+
+<div class="presets">
+<strong style="color:#f0f6fc;align-self:center">Presets:</strong>
+<button class="btn btn-sm" onclick="loadPreset('allowAll')">Allow All</button>
+<button class="btn btn-sm" onclick="loadPreset('blockAll')">Block All</button>
+<button class="btn btn-sm" onclick="loadPreset('blockAI')">Block AI Bots</button>
+<button class="btn btn-sm" onclick="loadPreset('wordpress')">WordPress</button>
+<button class="btn btn-sm" onclick="loadPreset('shopify')">Shopify</button>
+</div>
+
+<div class="grid">
+<div>
+<div class="card">
+<h2><svg viewBox="0 0 16 16"><path d="M1.5 1.75a.75.75 0 011.5 0v12.5a.75.75 0 01-1.5 0V1.75zm4 0a.75.75 0 011.5 0v12.5a.75.75 0 01-1.5 0V1.75zm4 0a.75.75 0 011.5 0v12.5a.75.75 0 01-1.5 0V1.75zM14 1.5a.75.75 0 01.75.75v11.5a.75.75 0 01-1.5 0V2.25A.75.75 0 0114 1.5z"/></svg> User-Agent Groups</h2>
+<div id="groups"></div>
+<button class="btn btn-primary" onclick="addGroup()" style="margin-top:8px">+ Add Group</button>
+</div>
+
+<div class="card">
+<h2>Sitemap &amp; Crawl Settings</h2>
+<label>Sitemap URL</label>
+<input type="text" id="sitemap" placeholder="https://example.com/sitemap.xml" oninput="generate()">
+</div>
+</div>
+
+<div>
+<div class="card">
+<h2>Live Preview</h2>
+<textarea id="output" readonly></textarea>
+<div id="validation" class="validation"></div>
+<div class="actions">
+<button class="btn btn-primary" onclick="copyOutput()">📋 Copy</button>
+<button class="btn btn-primary" onclick="downloadOutput()">⬇ Download</button>
+<button class="btn btn-danger" onclick="resetAll()">🗑 Reset</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="features">
+<div class="feature"><div class="icon">⚡</div><h3>Live Preview</h3><p>See your robots.txt update in real-time as you add rules and directives.</p></div>
+<div class="feature"><div class="icon">🛡️</div><h3>Smart Validation</h3><p>Detects conflicting rules, missing newlines and common mistakes instantly.</p></div>
+<div class="feature"><div class="icon">🤖</div><h3>Block AI Bots</h3><p>One-click preset to block ChatGPT, GPTBot, CCBot, Google-Extended and Bytespider.</p></div>
+<div class="feature"><div class="icon">📦</div><h3>Ready Presets</h3><p>Pre-built templates for WordPress, Shopify, allow-all and block-all configurations.</p></div>
+</div>
+
+<div class="faq">
+<h2 style="color:#f0f6fc;margin-bottom:16px;text-align:center">Frequently Asked Questions</h2>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is a robots.txt file?</div><div class="faq-a">A robots.txt file tells search engine crawlers which pages or sections of your site they can or cannot crawl. It is placed at the root of your domain (e.g. https://example.com/robots.txt).</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Where should I place my robots.txt file?</div><div class="faq-a">Upload it to the root directory of your website so it is accessible at /robots.txt. For example, https://example.com/robots.txt. Most CMS platforms allow you to upload or edit it via their file manager.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Does robots.txt block pages from appearing in search results?</div><div class="faq-a">No. robots.txt controls crawling, not indexing. A page disallowed in robots.txt can still appear in search results if linked from other sites. Use noindex meta tags for pages you want excluded from indexes.</div></div>
+</div>
+
+<div class="email-widget">
+<h3>Get robots.txt Tips in Your Inbox</h3>
+<p>Subscribe for SEO crawl optimization tips and robots.txt best practices.</p>
+<div class="email-form">
+<input type="text" id="emailInput" placeholder="you@example.com">
+<button class="btn btn-primary" onclick="document.getElementById('emailInput').value='Subscribed! ✓'">Subscribe</button>
+</div>
+</div>
+
+<div class="cross-links">
+<a href="/sitemap.xml">sitemap.xml</a>
+<a href="/robots.txt">robots.txt</a>
+</div>
+
+</main>
+
+<footer>
+<div class="container">
+<p>&copy; 2026 robots.txt Generator. Free tool — no sign-up required.</p>
+</div>
+</footer>
+
+<script>
+const BOTS=['Googlebot','Bingbot','Slurp','DuckDuckBot','Baiduspider','YandexBot','facebot','ia_archiver','*'];
+const AI_BOTS=['ChatGPT','GPTBot','CCBot','Google-Extended','Bytespider'];
+let state={groups:[],sitemap:''};
+
+function botOptions(selected){
+  return BOTS.map(b=>`<option value="${b}"${b===selected?' selected':''}>${b==='*'?'* (all bots)':b}</option>`).join('');
+}
+
+function addGroup(agent='*',directives=[],delay=''){
+  const id=Date.now()+Math.random();
+  state.groups.push({id,agent,directives,delay});
+  renderGroups();
+  generate();
+}
+
+function removeGroup(id){
+  state.groups=state.groups.filter(g=>g.id!==id);
+  renderGroups();
+  generate();
+}
+
+function renderGroups(){
+  const c=document.getElementById('groups');
+  c.innerHTML=state.groups.map(g=>{
+    const dirs=g.directives.map((d,i)=>`
+      <div class="rule-row">
+        <select onchange="updDirective(${g.id},${i},'type',this.value)">
+          <option value="Disallow"${d.type==='Disallow'?' selected':''}>Disallow</option>
+          <option value="Allow"${d.type==='Allow'?' selected':''}>Allow</option>
+        </select>
+        <input type="text" value="${esc(d.path)}" placeholder="/path/" oninput="updDirective(${g.id},${i},'path',this.value)">
+        <button class="btn btn-sm btn-danger" onclick="rmDirective(${g.id},${i})">×</button>
+      </div>`).join('');
+    return `<div class="group">
+      <button class="btn btn-sm btn-danger remove-group" onclick="removeGroup(${g.id})">×</button>
+      <label>User-Agent</label>
+      <select onchange="updGroup(${g.id},'agent',this.value)">${botOptions(g.agent)}</select>
+      <label style="margin-top:10px">Crawl-Delay (seconds, 0 to omit)</label>
+      <input type="text" value="${esc(g.delay)}" placeholder="0" oninput="updGroup(${g.id},'delay',this.value)">
+      <div style="margin-top:12px"><label>Directives</label>${dirs}</div>
+      <button class="btn btn-sm" onclick="addDirective(${g.id})" style="margin-top:6px">+ Add Directive</button>
+    </div>`;
+  }).join('');
+}
+
+function addDirective(gid){
+  const g=state.groups.find(x=>x.id===gid);
+  if(g){g.directives.push({type:'Disallow',path:'/'});renderGroups();generate();}
+}
+function rmDirective(gid,idx){
+  const g=state.groups.find(x=>x.id===gid);
+  if(g){g.directives.splice(idx,1);renderGroups();generate();}
+}
+function updDirective(gid,idx,key,val){
+  const g=state.groups.find(x=>x.id===gid);
+  if(g){g.directives[idx][key]=val;generate();}
+}
+function updGroup(gid,key,val){
+  const g=state.groups.find(x=>x.id===gid);
+  if(g){g[key]=val;generate();}
+}
+function esc(s){return String(s).replace(/"/g,'&quot;').replace(/</g,'&lt;')}
+
+function generate(){
+  state.sitemap=document.getElementById('sitemap').value.trim();
+  let lines=[];
+  state.groups.forEach(g=>{
+    lines.push('User-agent: '+g.agent);
+    g.directives.forEach(d=>{
+      lines.push(d.type+': '+d.path);
+    });
+    const d=parseInt(g.delay);
+    if(d>0) lines.push('Crawl-delay: '+d);
+    lines.push('');
+  });
+  if(state.sitemap) lines.push('Sitemap: '+state.sitemap+'\n');
+  const out=lines.join('\n').replace(/\n{3,}/g,'\n\n').trim()+'\n';
+  document.getElementById('output').value=out;
+  validate(out);
+}
+
+function validate(txt){
+  const el=document.getElementById('validation');
+  const msgs=[];
+  const groups=txt.split(/(?=User-agent:)/i).filter(Boolean);
+  groups.forEach(grp=>{
+    const allows=([...grp.matchAll(/^Allow:\s*/gm)]).length;
+    const disallows=([...grp.matchAll(/^Disallow:\s*/gm)]).length;
+    if(allows&&disallows){
+      const allowPaths=[...grp.matchAll(/^Allow:\s*(.+)/gm)].map(m=>m[1].trim());
+      const disallowPaths=[...grp.matchAll(/^Disallow:\s*(.+)/gm)].map(m=>m[1].trim());
+      allowPaths.forEach(a=>{disallowPaths.forEach(d=>{if(a===d||d==='/'&&a!=='/')msgs.push({t:'warn',m:`Conflicting rules: Allow ${a} vs Disallow ${d} in same group`});});});
+    }
+  });
+  if(!txt.includes('User-agent:'))msgs.push({t:'err',m:'No User-agent groups defined.'});
+  if(txt.includes(' \n'))msgs.push({t:'warn',m:'Trailing whitespace detected on some lines.'});
+  if(!txt.trim())msgs.push({t:'err',m:'robots.txt is empty.'});
+  if(msgs.length===0)msgs.push({t:'ok',m:'No issues detected. ✓'});
+  el.innerHTML=msgs.map(m=>`<div class="${m.t}">${m.t==='err'?'✗':''}${m.t==='warn'?'⚠':''}${m.t==='ok'?'':''} ${m.m}</div>`).join('');
+}
+
+function copyOutput(){
+  navigator.clipboard.writeText(document.getElementById('output').value).then(()=>{const b=document.querySelector('.actions .btn');b.textContent='✓ Copied!';setTimeout(()=>b.textContent='📋 Copy',1500);});
+}
+function downloadOutput(){
+  const b=new Blob([document.getElementById('output').value],{type:'text/plain'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='robots.txt';a.click();
+}
+
+function resetAll(){
+  state={groups:[],sitemap:''};
+  document.getElementById('sitemap').value='';
+  renderGroups();generate();
+}
+
+function loadPreset(name){
+  state={groups:[],sitemap:''};
+  document.getElementById('sitemap').value='';
+  const mk=(agent,dirs,delay='')=>({id:Date.now()+Math.random(),agent,directives:dirs,delay});
+  switch(name){
+    case 'allowAll':
+      state.groups=[mk('*',[{type:'Allow',path:'/'}])];break;
+    case 'blockAll':
+      state.groups=[mk('*',[{type:'Disallow',path:'/'}])];break;
+    case 'blockAI':
+      state.groups=AI_BOTS.map(b=>mk(b,[{type:'Disallow',path:'/'}]));break;
+    case 'wordpress':
+      state.groups=[
+        mk('*',[{type:'Disallow',path:'/wp-admin/'},{type:'Allow',path:'/wp-admin/admin-ajax.php'}]),
+        mk('*',[],'1')
+      ];break;
+    case 'shopify':
+      state.groups=[
+        mk('*',[
+          {type:'Disallow',path:'/cart'},{type:'Disallow',path:'/checkout'},
+          {type:'Disallow',path:'/account'},{type:'Disallow',path:'/collections/*sort_by='},
+          {type:'Disallow',path:'/*?q='},{type:'Disallow',path:'/blogs/*+*'},{type:'Disallow',path:'/blogs/*%2B*'},
+          {type:'Allow',path:'/collections/*/sitemap.xml'}
+        ])
+      ];break;
+  }
+  renderGroups();generate();
+}
+
+function toggleFaq(el){
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+}
+
+// Init with a default group
+addGroup('*',[{type:'Allow',path:'/'}]);
+</script>
+</body>
+</html>
